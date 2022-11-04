@@ -1,0 +1,927 @@
+@use "sabu" as m;
+
+html {
+    $bease-color: #fff;
+    $main-color: #E8FFC3;
+    $sabu-color01:#6A8E31;
+    $sabu-color02:#313131;
+    $dashed : #9D9D9D;
+    $institution01:#910202;
+    $institution02:#026A91;
+    $institution03:#918102;
+    body {
+        font-family:system-ui;
+        font-weight: bold;
+        img {
+            max-width: 100%;
+            object-fit: cover;
+        }
+        ul {margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            display: block;
+            
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+        p {
+            font-size: 16px;
+            font-family: serif;
+            line-height: 29px;
+            font-weight: lighter;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        h2 {
+            font-size: 25px;
+        }
+        h3 {
+            font-size:25px ;
+            @include m.mq(pc01) {
+                font-size: 50px;
+            }
+        }
+        h4 {
+            font-size: 20px;
+        }
+        @function vw($size, $viewport:1920) {
+            $rate: 100 /$viewport;
+            @return $rate * $size * 1vw;
+        }
+        @mixin display001 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @mixin background-color01 {
+            background: rgba($color: $bease-color, $alpha: 0.8);
+        }
+        .all-btn {
+            @include display001;
+            margin: 0 auto;
+            height: 40px;
+            background: $bease-color;
+            border: 1px solid $sabu-color01;
+            border-radius: 20px; 
+            
+            a {
+                @include display001;
+                opacity: 1;
+            }
+
+            &:hover {
+                background: $sabu-color01;
+                border: 1px solid $sabu-color01;
+                
+                a {
+                    color: $bease-color;
+                }
+            }
+            a{
+                font-size: 20px;
+                color: $sabu-color01;
+            }
+        }
+        .read_more-btn {
+            width: 195px
+        }
+        .childcare-login-bth {
+            @include display001;
+            width: 150px;
+            height: 30px;
+            background: $sabu-color01;
+            border-radius: 15px;
+
+            a {
+                color: $bease-color;
+            }
+        }
+        .logo_mark {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            &-images {
+                margin-right: 5px;
+                width: 47px;
+                height: 47px;
+                background: $bease-color;
+                border-radius: 50%;
+            }
+            .logo_type {
+                &-up {
+                    display: block;
+                    font-weight: lighter;
+                    margin-bottom: 2px;
+                }
+                &-down {
+                    margin: 0;
+                }
+            }
+        }
+        .red {
+            background: $institution01;
+        }
+        .blue {
+            background: $institution02;
+        }
+        .yellow {
+            background: $institution03;
+        }
+        .header {
+            position: relative;
+            width: 100vw;
+            &-up {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin: 0 auto;
+                padding: 15px 10px 5px;
+
+                @include m.mq(pc01) {
+                   justify-content: flex-end;
+                   align-items: center;
+                   
+                 }
+                 &-navi {
+                    display: none;
+                    @include m.mq(pc01) {
+                        display: block;
+
+                        &-list {
+                            display: flex;
+                            align-items: center;
+                            
+                            &-item {
+                                margin-right: 5px; 
+                                padding-right: 5px;
+                                border-right: solid 1px $sabu-color02;
+                                &:last-child {
+                                    margin-right: 10px; 
+                                    padding-right:0;
+                                    border-right: 0px;
+                                }
+                                a {
+                                    font-size: 14px;
+                                    color: $sabu-color02
+                                }
+                            }
+                        }
+                    } 
+                 }
+                .childcare-business-bth {
+                    @include display001;
+                    width: 110px;
+                    height: 25px;
+                    background: $sabu-color01;
+                    border-radius: 12px;
+
+                    @include m.mq(pc01) {
+                       position: absolute;
+                       top: 18%;
+                       left: 10px;
+                    }
+                    a {
+                        color: $bease-color;
+                    }
+                }
+            }
+            &-down {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100vw;
+                height: 65px;
+                background: $main-color;
+
+                .logo_type-down {
+                    font-size: 25px;
+                }
+                &-navi {
+                    display: none;
+                    @include m.mq(pc01){
+                        display: block;
+                        &-list {
+                            display: flex;
+                            align-items: center;
+
+                            &-item {
+                                margin-right: 10px; 
+                                padding-right: 10px;
+                                border-right: solid 1px $sabu-color02;
+                                &:nth-child(6) {
+                                    margin-right: 10px; 
+                                    padding-right:0;
+                                    border-right: 0px;
+                                }
+                                &:nth-child(7) {
+                                    margin-right: 0px; 
+                                    padding-right:0;
+                                    border-right: 0px;
+                                }
+                                a {
+                                    font-size: 16px;
+                                    color: $sabu-color02;
+                                }
+                                &-institution {
+                                    display: flex;
+                                    align-items: center;
+                                    &-item {
+                                        @include display001;
+                                        width: 100px;
+                                        height: 65px;
+                                        border-right: solid 1px $bease-color;
+                                        &:last-child {
+                                            border-right: 0px;
+                                        }
+                                        a{
+                                            color: $bease-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+                .navi-open-btn {
+                    position: fixed;
+                    top: 70px;
+                    right: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    width: 30px;
+                    height: 20px;
+                    transition: all .2s;
+                    z-index: 200;
+                    
+                    @include m.mq(pc01) {
+                        display: none;
+                    }
+
+                    div {
+                        width: 30px;
+                        height: 2px;
+                        background: $sabu-color02;
+                        transition: all .2s;
+                    }
+                    &.active {
+                         div:nth-child(1) {
+                            background: $bease-color;
+                            transform: translateY(9px) rotate(45deg);
+                            transition: all .2s;
+                         }
+                         div:nth-child(2) {
+                           opacity: 0;
+                           transition: all .2s;
+                         }
+                         div:nth-child(3) {
+                            background: $bease-color;
+                            transform: translateY(-9px) rotate(-45deg);
+                            transition: all .2s;
+                         }
+                    }
+                }
+                .navi {
+                    position: fixed;
+                    top: 0;
+                    left: -200%;
+                    width: 100vw;
+                    height: 100vh;
+                    background: rgba($color: #000000, $alpha: 0.5);
+                    z-index: 50;
+                    transition: all .2s;
+                    &-list  {
+                        @include display001;
+                        flex-wrap: wrap;
+                        margin: 120px 0;
+                        
+                        &-item {
+                            @include display001;
+                            margin-bottom: 30px;
+                            width: 30%;
+                            
+                            a{
+                                color: $bease-color;
+                            }
+                            &-institution {
+                                @media screen and (min-width:700px) {
+                                    display: flex;
+                                   gap: 50px;
+                                }
+                                &-item {
+                                    @include display001;
+                                    margin-bottom: 20px;
+                                    width: 200px;
+                                    height: 50px;
+                                }
+                            }
+                        }
+                    }
+                    &.active {
+                        left: 0%;
+                        transition: all .2s;
+                    }
+                }
+            }
+        }
+        .main {
+            .section {
+                margin-bottom: 100px;
+                @include m.mq(pc01) {
+                    margin-bottom: 120px;
+                }
+            }
+            .mv {
+                position: relative;
+                img {
+                    width: 100vw;
+                    overflow: hidden;
+                }
+                &-title {
+                    position: absolute;
+                    bottom: -20px;
+                    left: 10px;
+                    @include m.mq(pc01) {
+                        top: 40px;
+                        right: 30px;
+                        writing-mode: vertical-rl;
+                    }
+
+                    &-item {
+                        @include display001;
+                        margin: 0 0 5px;
+                        height: vw(130);
+                        font-size: vw(120);
+                        @include background-color01;
+                        
+                        @include m.mq(pc01) {
+                            margin: 0 0 0 20px;
+                         }
+                        &:nth-child(1) {
+                            width: vw(750);
+                            @include m.mq(pc01) {
+                               font-size: 80px;
+                               width: 130px;
+                               height: 510px;
+                            }
+                        }
+                        &:nth-child(2) {
+                            width: vw(1100);
+                            @include m.mq(pc01) {
+                                margin: 50px 0 0 20px;
+                                font-size: 50px;
+                                width: 70px;
+                                height: 490px;
+                             }
+                        }
+                        &:nth-child(3) {
+                            margin: 0px;
+                            width: vw(1600);
+                            @include m.mq(pc01) {
+                                margin: 80px 0 0 20px;
+                                font-size: 50px;
+                                width: 70px;
+                                height: 700px;
+                             }
+                        }
+                    }
+                }
+            }
+            .protection {
+                position: relative;
+                display: flex;
+                align-items: flex-end;
+                flex-direction: column;
+                margin-bottom: vw(460);
+
+                @include m.mq(tab) {
+                    margin-bottom: vw(450);
+                }
+                @include m.mq(pc01) {
+                    margin-bottom: 180px;
+                }
+                img {
+                    margin-bottom: 20px;
+                    padding-left: 5%;
+                    width: 95vw;
+                    object-position: 100%;
+                    @include m.mq(pc01) {
+                        padding-right: 5%;
+                    }
+                }
+                &-title {
+                    position: absolute;
+                    top: 0;
+                    left: 5%;
+                    transform: translateY(30px);
+                    display: flex;
+                    &-item {
+                        @include display001;
+                        margin: 0 5px 0 0;
+                        width: vw(140);
+                        font-size: vw(120);
+                        writing-mode: vertical-lr;
+                        @include background-color01;
+
+                        @include m.mq(pc01) {
+                            width: 70px;
+                            font-size: 50px;
+                        }
+
+                        &:nth-child(1) {
+                            transform: translateY(90px);
+                            height:  vw(1570);
+                            @include m.mq(pc01) {
+                                height: 690px;
+                            }
+                        }
+                        &:nth-child(2) {
+                            height:  vw(1700);
+                            @include m.mq(pc01) {
+                                height: 740px;
+                            }
+                        }
+                    }
+                }
+                &-text {
+                    @include display001;
+                    flex-direction: column;
+                    margin: 0 5% 0 0;
+                    width: 70%;
+                    
+                    @include m.mq(tab) {
+                        margin: 100px 5% 0 0;
+                    }
+                    @include m.mq(pc01) {
+                        position: absolute;
+                        bottom:0;
+                        right:0;
+                        @include display001;
+                        flex-direction: column;
+                        width:40%;
+                        height: 340px;
+                        background: $bease-color;
+                        object-fit: cover;
+                    }
+
+                    &-inner {
+                       margin: 0 0 20px;
+
+                       @include m.mq(pc01) {
+                        width: 75%;
+                       }
+                    }
+                }
+                .protection-btn {
+                    width: 195px;
+                }
+            }
+            .institution {
+                @include display001;
+                width: 100vw;
+                background: $main-color;
+
+                
+                &-inner {
+                    margin: 5% 0;
+                    width: 90%;
+                    background: $bease-color;
+                    
+                    @include m.mq(pc01) {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        flex-direction: row-reverse;
+                        margin: 2% 0;
+                        width: 96%;
+                    }
+                    .institution-composition {
+                       @include display001;
+                        flex-direction: row-reverse;
+                        margin: 7% auto;
+                        width: 90%;
+
+                        @include m.mq(pc01) {
+                            flex-direction: column;
+                            width: 25%;
+                        }
+
+                        &-title {
+                            margin: 0;
+                            line-height: 40px;
+                            letter-spacing: 3px;
+                            writing-mode: vertical-rl;
+                            @include m.mq(pc01) {
+                                margin-bottom: 70px;
+                                line-height: 100px;
+                            }
+                        }
+                        &-text {
+                            margin: 0;
+
+                            @include m.mq(pc01) {
+                                margin: 0 2%;
+                            }
+                        }
+                    }
+                }
+                &-box {
+                    @include m.mq(pc01) {
+                        margin: 2%;
+                        padding-right: 1%;
+                        width: 65%;
+                        border-right: dashed 1px $dashed;
+                    }
+                    &-inner {
+                        position: relative;
+
+                        @include m.mq(pc01) {
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-wrap: wrap;
+                            margin-bottom: 20px;
+                            padding-bottom: 20px;
+                            border-bottom: dashed 1px $dashed;
+
+                            &:last-child {
+                                margin-bottom: 0px;
+                                padding-bottom: 10px;
+                                border-bottom: 0px;
+                            }
+                        }
+
+                        &:last-child {
+                            .institution-box-inner-text {
+                                border: 0;
+                            }
+                        }
+                        img {
+                            margin-bottom: 25px;
+                            @include m.mq(pc01) {
+                                margin-bottom: 0;
+                                width: vw(450);
+                                height: vw(450);
+                            }
+                        }
+                        &-text {
+                            margin: 0 auto 20px;
+                            padding-bottom:20px;
+                            width: 85%;
+                            border-bottom: dashed 1px $dashed;
+
+                            @include m.mq(pc01) {
+                                margin: 0 0 0 20px;
+                                padding-bottom:0px;
+                                width: vw(680);
+                                border-bottom: 0;
+                            }
+                            
+                            &-name {
+                                @include display001;
+                                flex-direction: column;
+                                position: absolute;
+                                top: 0%;
+                                left: 0%;
+                                width: 210px;
+                                height: 50px;
+                                font-size: 18px;
+                                color: $bease-color;
+
+                                @include m.mq(pc01) {
+                                    position:static ;
+                                    margin-bottom: 30px;
+                                    width: 330px;
+                                    height: 65px;
+                                }
+                                
+                                span {
+                                    display: block;
+                                    font-size: 16px;
+                                }
+                            }
+                            &-item {
+                                margin: 0 0 25px;
+
+                                @include m.mq(pc01) {
+                                    margin: 0 0 15px;
+                                }
+                            }
+                            &-address {
+                                margin: 0 0 25px;
+                                font-size: 14px;
+                                font-weight: lighter;
+                                font-style: normal;
+                                line-height: 27px;
+
+                                .read_more-btn {
+                                    font-weight: bold;
+                                }
+
+                                @include m.mq(pc01) {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: flex-end;
+                                    margin: 0;
+                                }
+
+                                .read_more-btn {
+                                    margin:25px auto 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .purpose {
+                &-inner {
+                    margin-bottom: 30px;
+                    @include m.mq(pc01) {
+                       display: flex;
+                       justify-content: flex-start;
+                       align-items: center;
+                       flex-direction: row-reverse;
+                       flex-wrap: wrap;
+                       width: 100%;
+                    }
+                    img {
+                        margin-bottom: 30px;
+                        padding-left: 5%;
+                        width: 95%;
+
+                        @include m.mq(pc01) {
+                            margin-bottom: 0;
+                            padding-left: 0;
+                            width: 50%;
+                        }
+                    }
+                    &:nth-child(2) {
+                         img {
+                            padding: 0 5% 0 0;
+                         }
+
+                        @include m.mq(pc01) {
+                            flex-direction: row;
+                            padding-right: 0;
+                        }
+                    }
+                    &-box {
+                        @include m.mq(pc01) {
+                            margin-top: 50px;
+                            width: 45%;
+                        }
+                        &-title {
+                            display: flex;
+                            align-items: center;
+                            margin: 0 auto 30px;
+                            width: 90%;
+                            &-main {
+                                margin: 0 10px 0 0;
+                                padding: 0 10px 0 0;
+                                writing-mode: vertical-lr;
+                                border-right: dashed 2px $sabu-color02;
+                            }
+                            &-sabu {
+                                line-height: 40px;
+                            }
+                        }
+                        &-text {
+                            margin: 0 auto 25px;
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+            .news {
+                margin: 0 auto 150px;
+                width: 90%;
+
+                @include m.mq(pc01) {
+                    width: 80%;
+                }
+
+                &-title {
+                    @include display001;
+                    margin: 0 auto 30px;
+                    padding-bottom: 10px;
+                    width: 80px;
+                    border-bottom: dashed 2px $sabu-color02;
+                }
+
+                &-list {
+                    margin-bottom:30px;
+                    &-item {
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        gap: 10px;
+                        margin-bottom: 20px;
+                        padding-bottom: 5px;
+                        border-bottom: dashed 2px $dashed;
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+
+                         &-date {
+                            font-size: 14px;
+                            padding:0 10px;
+                         }
+                         &-institution {
+                            @include display001;
+                            width: 170px;
+                            height: 25px;
+                            color: $bease-color;
+                            border-radius: 5px;
+                         }
+                         a {
+                            padding-left:10px;
+                            font-weight: lighter;
+                            color: $sabu-color01;
+                         }
+                    }
+                   
+                }
+                .news-list-btn {
+                    width: 220px;
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0 auto;
+            background: $main-color;
+
+            @include m.mq(pc01) {
+                justify-content: space-around;
+                flex-direction: row-reverse;
+            }
+
+            .info {
+               margin: 30px auto;
+               padding-bottom: 30px;
+               width: 90%;
+               border-bottom:  dashed 2px $dashed;
+
+                &-title {
+                    @include display001;
+                    margin: 0 auto 10px;
+                    padding-bottom: 10px;
+                    width: 100%;
+                    border-bottom: dashed 2px $sabu-color02;
+
+                    @include m.mq(tab) {
+                        width: 40%;
+                    }
+                }
+                &-text {
+                    @include display001;
+                    margin: 0 auto 20px;
+                    width: 80%;
+                }
+                .tel {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    &-text {
+                        margin: 0 auto 5px;
+                        font-size: 14px
+                    }
+                    &-item {
+                        @include display001;
+                        margin-bottom: 30px;
+                        &-images {
+                            margin-right: 5px;
+                        }
+                        &-number {
+                            font-size: 40px;
+                        }
+                    }
+                }
+                .mail_info-btn {
+                    width: 230px;
+                    a {
+                        font-size: 18px;
+                        img {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+            &-institution {
+               display: flex;
+               align-items: center;
+               flex-direction: column;
+               margin-bottom: 60px;
+               width: 90%;
+
+               @include m.mq(pc01) {
+                width: calc(100%/3);
+               }
+                &-inner {
+                    @include display001;
+                    margin-bottom: 25px;
+                    text-align: center;
+                    width: 330px;
+                    height: 65px;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                    a {
+                        color: $bease-color;
+
+                        span {
+                            margin-top: 5px;
+                        }
+                    }
+                    &.yellow {
+                        margin: 0;
+                    }
+                }
+            }
+            &-navi {
+                margin-bottom: 60px;
+                width: 90%;
+
+                @include m.mq(pc01) {
+                    width: calc(100%/3);
+                }
+                &-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    &-item {
+                        display:flex ;
+                        justify-content: center;
+                       margin-bottom: 30px;
+                       width: calc(100%/3);
+                        a {
+                            display: block;
+                            color: $sabu-color02;
+                        }
+                    }
+                }
+                .childcare-login-bth {
+                    margin: 0 auto;
+                }
+            }
+            &-logo {
+                @include m.mq(pc01) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    margin-left: 4%;
+                    width: 29%;
+                }
+                .logo_mark {
+                    margin-bottom:5px;
+                    padding: 0;
+                }
+                .operation {
+                    margin:0 0 20px;
+                }
+                .access {
+                    dl {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: 0 0 10px;
+                        width: 100%;
+                        font-weight: lighter;
+                        
+                        dd {
+                            margin-left:10px;
+                        }
+                    }
+                    .address {
+                        margin: 0 0 5px 0;
+                        font-size: 14px;
+                    }
+                    .web_url {
+                        margin:0 0 30px 0;
+                        font-size: 14px
+                    }
+                }
+            }
+            small {
+                @include display001;
+                width: 100vw;
+                height: 20px;
+                background: $bease-color;
+                font-size: 10px;
+                font-weight: lighter;
+            }
+        }
+    }
+}
