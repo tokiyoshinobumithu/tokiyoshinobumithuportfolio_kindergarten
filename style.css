@@ -332,7 +332,6 @@ html body .main .mv {
 }
 html body .main .mv img {
   width: 100vw;
-  overflow: hidden;
 }
 html body .main .mv-title {
   position: absolute;
